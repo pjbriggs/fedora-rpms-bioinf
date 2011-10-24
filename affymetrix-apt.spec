@@ -1,14 +1,15 @@
 Name:		affymetrix-apt
 Version:	1.14.3
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Tools for analyzing and working with Affymetrix GeneChip arrays
 
 Group:		Applications/Productivity
-License:	GNU Lesser General Public License version 2.1
+License:	LGPLv2
 URL:		http://www.affymetrix.com/partners_programs/programs/developer/tools/powertools.affx
 Source0:	http://www.affymetrix.com/estore/partners_programs/programs/developer/apt_download/apt_thank_you.affx?onloadforward=http://media.affymetrix.com//Download/updates/apt-1.14.3-src.zip
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 	
+BuildRequires:	cppunit-devel
 
 %description
 Affymetrix Power Tools (APT) are a set of cross-platform command line programs
@@ -31,15 +32,15 @@ cd sdk
 make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 # Doesn't have a make install of its own so fudge it here
-mkdir -p $RPM_BUILD_ROOT/usr/bin
-cp sdk/output/amd64-pc-linux/bin/apt-* $RPM_BUILD_ROOT/usr/bin
-rm $RPM_BUILD_ROOT/usr/bin/apt-rt-*
+mkdir -p %{buildroot}%{_bindir}
+cp sdk/output/amd64-pc-linux/bin/apt-* %{buildroot}%{_bindir}
+rm %{buildroot}%{_bindir}/apt-rt-*
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 
 %files
@@ -48,3 +49,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Oct 21 2011 Adam Huffman <adam.huffman@manchester.ac.uk> - 1.14.3-2
+- use macros for %%buildroot and %%_bindir
+- add BR for cppunit-devel
+- fix license
+
+* Fri Oct 14 2011 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.14.3-1
+- initial version
