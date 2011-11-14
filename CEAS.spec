@@ -37,7 +37,7 @@ rm -rf %{buildroot}
 %{__python} setup.py install --skip-build --root %{buildroot}
 
 %clean
-rm -rf ${buildroot}
+rm -rf %{buildroot}
 
 
 %files
