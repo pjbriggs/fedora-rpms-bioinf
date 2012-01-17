@@ -3,6 +3,7 @@ Version:	2.8.2
 Release:	2%{?dist}
 Summary:	Generate sequence logos of amino acid or nucleic acid multiple sequence alignments
 
+Group:		Applications/Engineering
 License:	MIT
 URL:		http://weblogo.berkeley.edu/
 Source0:	http://weblogo.berkeley.edu/release/weblogo.2.8.2.tar.gz
