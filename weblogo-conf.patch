@@ -1,0 +1,8 @@
+--- logo.conf.new	2012-01-17 15:30:58.797309730 +0000
++++ logo.conf	2012-01-17 15:31:39.530216182 +0000
+@@ -0,0 +1,5 @@
++# Make configuration changes here. Rename this file to logo.conf
++# gs version 5.5 does not work, 6.5 does
++# set the PATHS
++gs=/usr/bin/gs
++convert=/usr/bin/convert

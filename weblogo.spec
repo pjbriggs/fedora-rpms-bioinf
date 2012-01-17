@@ -1,18 +1,19 @@
 Name:		weblogo
 Version:	2.8.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Generate sequence logos of amino acid or nucleic acid multiple sequence alignments
 
 License:	MIT
 URL:		http://weblogo.berkeley.edu/
 Source0:	http://weblogo.berkeley.edu/release/weblogo.2.8.2.tar.gz
 Patch0:		weblogo-path.patch
+Patch1:		weblogo-conf.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:	noarch
 
 #BuildRequires:	
-#Requires:	
+Requires:	ghostscript ImageMagick
 
 %description
 WebLogo is an application designed to make the generation of sequence logos as easy and
@@ -31,6 +32,9 @@ precise description of, for example, a binding site, than would a consensus sequ
 # Patch seqlogo to locate template.eps in /usr/share/weblogo
 %patch0 -p1
 
+# Create conf file for locating gs and convert
+%patch1
+
 %build
 
 
@@ -48,7 +52,8 @@ install -m 0644 %{_builddir}/%{name}/template.pm %{buildroot}%{perl_vendorarch}
 
 # Put data files in share
 mkdir -p %{buildroot}%{_datadir}/%{name}
-install -m 0644 %{_builddir}/%{name}/template.eps %{buildroot}%{_datadir}/%{name}/template.eps
+install -m 0644 %{_builddir}/%{name}/logo.conf %{buildroot}%{_datadir}/%{name}
+install -m 0644 %{_builddir}/%{name}/template.eps %{buildroot}%{_datadir}/%{name}
 
 # Put documents in doc
 mkdir -p %{buildroot}%{_docdir}/%{name}-%{version}
@@ -63,6 +68,8 @@ install -m 0644 %{_builddir}/%{name}/LICENSE %{buildroot}%{_docdir}/%{name}-%{ve
 
 
 %changelog
+* Tue Jan 17 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 2.8.2-2
+- added requirements for ghostscript and ImageMagick, plus custom conf file.
 
-* Tues Jan 17 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 2.8.2-1
+* Tue Jan 17 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 2.8.2-1
 - initial version (command line version only)
