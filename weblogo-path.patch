@@ -1,0 +1,12 @@
+--- software-build/weblogo/weblogo/seqlogo	2004-03-15 05:04:47.000000000 +0000
++++ bin/seqlogo	2012-01-17 13:55:06.156221882 +0000
+@@ -63,7 +63,8 @@
+     use FindBin qw($Bin);
+     use lib "$Bin";
+ 
+-    $PATH = $Bin;
++    #$PATH = $Bin;
++    $PATH = "/usr/share/weblogo"
+ 
+ ##    $PATH = "/h/gary/Seqlogo/Code/";
+ #    $PATH = "/n/weblogo/home/httpd/weblogo/pub/beta/Seqlogo/Code";
