@@ -1,6 +1,6 @@
 Name:		weblogo
 Version:	2.8.2
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Generate sequence logos of amino acid or nucleic acid multiple sequence alignments
 
 Group:		Applications/Engineering
@@ -47,9 +47,9 @@ mkdir -p %{buildroot}%{_bindir}
 install -m 0775 %{_builddir}/%{name}/seqlogo %{buildroot}%{_bindir}
 
 # Put perl modules in lib
-mkdir -p %{buildroot}%{perl_vendorarch}
-install -m 0644 %{_builddir}/%{name}/logo.pm %{buildroot}%{perl_vendorarch}
-install -m 0644 %{_builddir}/%{name}/template.pm %{buildroot}%{perl_vendorarch}
+mkdir -p %{buildroot}%{perl_vendorlib}
+install -m 0644 %{_builddir}/%{name}/logo.pm %{buildroot}%{perl_vendorlib}
+install -m 0644 %{_builddir}/%{name}/template.pm %{buildroot}%{perl_vendorlib}
 
 # Put data files in share
 mkdir -p %{buildroot}%{_datadir}/%{name}
@@ -63,12 +63,15 @@ install -m 0644 %{_builddir}/%{name}/LICENSE %{buildroot}%{_docdir}/%{name}-%{ve
 
 %files
 %{_bindir}/*
-%{perl_vendorarch}/*
+%{perl_vendorlib}/*
 %{_datadir}/%{name}/*
 %{_docdir}/%{name}-%{version}/*
 
 
 %changelog
+* Mon Jan 23 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 2.8.2-3
+- Use "perl_vendorlib" rather than "perl_vendorarch" macro for installing Perl modules.
+
 * Tue Jan 17 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 2.8.2-2
 - added requirements for ghostscript and ImageMagick, plus custom conf file.
 
