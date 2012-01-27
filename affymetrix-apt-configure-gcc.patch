@@ -1,0 +1,21 @@
+--- apt-1.14.3.1-src/sdk/configure	2011-08-30 20:02:00.000000000 +0100
++++ apt-1.14.3.1-src.new/sdk/configure	2012-01-26 12:04:00.240519201 +0000
+@@ -208,7 +208,17 @@
+     }
+   }
+   if ($opt_cflags ne "") {
+-    gen_m2_set("sdk_cpp_cflags",$opt_cflags);
++    # Add -fpermissive to cpp flags for gcc 4.6.1
++    $opt_cppflags = $opt_cflags;
++    print "checking for gcc 4.6";
++    ($ver_marjor,$ver_minor,$rev) = get_gcc_ver();
++    if(($ver_major == 4) && ($ver_minor == 6)) {
++	print "yes, add -fpermissive to C++ flags\n";
++	$opt_cppflags = $opt_cppflags . " -fpermissive ";
++    } else {
++	print "no\n";
++    }
++    gen_m2_set("sdk_cpp_cflags",$opt_cppflags);
+     # at some point we may need to make a distinction between
+     # C and CPP flags - here we do not. But we do make a copy
+     # as the post build makefile system will add c++ specific

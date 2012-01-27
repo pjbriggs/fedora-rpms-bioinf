@@ -1,12 +1,13 @@
 Name:		affymetrix-apt
-Version:	1.14.3
-Release:	2%{?dist}
+Version:	1.14.3.1
+Release:	1%{?dist}
 Summary:	Tools for analyzing and working with Affymetrix GeneChip arrays
 
 Group:		Applications/Productivity
 License:	LGPLv2
 URL:		http://www.affymetrix.com/partners_programs/programs/developer/tools/powertools.affx
-Source0:	http://www.affymetrix.com/estore/partners_programs/programs/developer/apt_download/apt_thank_you.affx?onloadforward=http://media.affymetrix.com//Download/updates/apt-1.14.3-src.zip
+Source0:	http://www.affymetrix.com/estore/partners_programs/programs/developer/apt_download/apt_thank_you.affx?onloadforward=http://media.affymetrix.com//Download/updates/apt-%{version}-src.zip
+Patch0:		affymetrix-apt-configure-gcc.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 	
 BuildRequires:	cppunit-devel
@@ -23,8 +24,9 @@ functionality. The vision is that APT provides a platform for developing and
 deploying new algorithms without waiting for the GUI implementations.
 
 %prep
-%setup -q -n apt-1.14.3-src
-
+%setup -q -n apt-%{version}-src
+# Patch sdk/configure to deal with gcc 4.6.x
+%patch0 -p1
 
 %build
 cd sdk
@@ -49,6 +51,10 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Jan 26 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.14.3.1-1
+- updated to 1.14.3.1
+- add patch for compiling with gcc 4.6.x
+
 * Fri Oct 21 2011 Adam Huffman <adam.huffman@manchester.ac.uk> - 1.14.3-2
 - use macros for %%buildroot and %%_bindir
 - add BR for cppunit-devel
