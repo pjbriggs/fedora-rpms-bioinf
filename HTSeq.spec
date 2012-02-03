@@ -1,8 +1,9 @@
 Name:		HTSeq
 Version:	0.5.3p3
 Release:	1%{?dist}
-Summary:	A framework to process and analyze data from high-throughput sequencing (HTS) assays
+Summary:	Framework to process and analyze data from HTS assays
 
+Group:		Applications/Engineering
 License:	GPLv3
 URL:		http://www-huber.embl.de/users/anders/HTSeq/doc/index.html
 Source0:	http://pypi.python.org/packages/source/H/HTSeq/HTSeq-0.5.3p3.tar.gz
@@ -11,10 +12,12 @@ BuildRequires:	python-devel numpy python-sphinx
 Requires:	python numpy python-matplotlib
 
 %description
-HTSeq is a Python package that provides infrastructure to process data from high-throughput
-sequencing assays. While the main purpose of HTSeq is to allow you to write your own analysis
-scripts, customized to your needs, there are also a couple of stand-alone scripts for common
-tasks that can be used without any Python knowledge.
+
+HTSeq is a Python package that provides infrastructure to process data
+from high-throughput sequencing assays. While the main purpose of
+HTSeq is to allow you to write your own analysis scripts, customized
+to your needs, there are also a couple of stand-alone scripts for
+common tasks that can be used without any Python knowledge.
 
 %prep
 %setup -q
