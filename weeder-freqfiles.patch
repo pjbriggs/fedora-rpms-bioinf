@@ -1,0 +1,44 @@
+diff -ru Weeder1.4.2/src/weederlauncher.c Weeder1.4.2.new/src/weederlauncher.c
+--- Weeder1.4.2/src/weederlauncher.c	2009-10-20 13:51:51.000000000 +0100
++++ Weeder1.4.2.new/src/weederlauncher.c	2012-03-16 16:09:07.314956534 +0000
+@@ -79,7 +79,7 @@
+   strcpy (inputfile, argv[1]);
+   strcpy (organism, argv[2]);
+   strcpy (analysis, argv[3]);
+-  sprintf (ofile, "./FreqFiles/%s.8.freq", organism);
++  sprintf (ofile, "/usr/share/weeder-1.4.2/FreqFiles/%s.8.freq", organism);
+ 
+   F = fopen (ofile, "r");
+ 
+@@ -89,7 +89,7 @@
+       exit (1);
+     }
+   fclose (F);
+-  sprintf (ofile, "./FreqFiles/%s.6.freq", organism);
++  sprintf (ofile, "/usr/share/weeder-1.4.2/FreqFiles/%s.6.freq", organism);
+ 
+   F = fopen (ofile, "r");
+ 
+Only in Weeder1.4.2.new/src: weederlauncher.c~
+diff -ru Weeder1.4.2/src/weederTFBS.c Weeder1.4.2.new/src/weederTFBS.c
+--- Weeder1.4.2/src/weederTFBS.c	2009-10-20 13:51:51.000000000 +0100
++++ Weeder1.4.2.new/src/weederTFBS.c	2012-03-16 16:08:46.011817193 +0000
+@@ -1277,7 +1277,7 @@
+     organism[i] = toupper (organism[i]);
+ 
+ 
+-  sprintf (freqfname, "./FreqFiles/%s.8.freq", organism);
++  sprintf (freqfname, "/usr/share/weeder-1.4.2/FreqFiles/%s.8.freq", organism);
+ 
+   F = fopen (freqfname, "r");
+ 
+@@ -1317,7 +1317,7 @@
+ 
+   //fprintf (stderr, "\nEightmers : %g", checksum);
+ 
+-  sprintf (freqfname, "./FreqFiles/%s.6.freq", organism);
++  sprintf (freqfname, "/usr/share/weeder-1.4.2/FreqFiles/%s.6.freq", organism);
+ 
+   F = fopen (freqfname, "r");
+ 
+Only in Weeder1.4.2.new/src: weederTFBS.c~
