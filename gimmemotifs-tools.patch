@@ -1,0 +1,18 @@
+diff -ru gimmemotifs-0.65/gimmemotifs/tools.py gimmemotifs-0.65.new/gimmemotifs/tools.py
+--- gimmemotifs-0.65/gimmemotifs/tools.py	2010-10-04 14:13:23.000000000 +0100
++++ gimmemotifs-0.65.new/gimmemotifs/tools.py	2012-03-27 13:47:27.984632582 +0100
+@@ -363,9 +363,11 @@
+ 		if self.is_configured():
+ 			dir = self.dir()
+ 
+-		freq_files = os.path.join(dir, "FreqFiles")
+-		if not os.path.exists(freq_files):
+-			raise ValueError, "Can't find FreqFiles directory for Weeder"
++		## Remove the check on FreqFiles for Weeder
++		## as we're using the Weeder RPM
++		##freq_files = os.path.join(dir, "FreqFiles")
++		##if not os.path.exists(freq_files):
++		##	raise ValueError, "Can't find FreqFiles directory for Weeder"
+ 				
+ 
+ 		fastafile = os.path.abspath(fastafile)
