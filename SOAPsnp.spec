@@ -4,7 +4,7 @@ Release:	1%{?dist}
 Summary:	Consensus sequence builder to calculate quality scores for SNP calling 
 
 Group:		Applications/Engineering
-License:	GPLv3qls
+License:	GPLv3
 URL:		http://soap.genomics.org.cn/soapsnp.html
 Source0:	http://soap.genomics.org.cn/down/SOAPsnp-v1.03.tar.gz
 
