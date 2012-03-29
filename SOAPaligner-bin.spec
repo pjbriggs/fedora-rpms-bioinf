@@ -11,6 +11,9 @@ Source0:	http://soap.genomics.org.cn/down/soap2.21release.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
+SOAPaligner/soap2 is a member of the SOAP (Short Oligonucleotide Analysis 
+Package).
+
 SOAPaligner/soap2 is a program for faster and efficient alignment for short
 oligonucleotide onto reference sequences. SOAPaligner/soap2 is compatible
 with numerous applications, including single-read or pair-end resequencing.
