@@ -1,0 +1,5 @@
+This RPM renames the executables in the original LDhat package to prepend
+the identifier "ldhat-...". 
+
+This is intended to prevent name clashes with the ImageMagick "convert" and
+coreutils "stat" programs.
