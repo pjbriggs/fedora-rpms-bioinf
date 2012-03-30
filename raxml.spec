@@ -51,3 +51,6 @@ install -m 0755 raxmlHPC-PTHREADS-SSE3 %{buildroot}%{_bindir}
 
 
 %changelog
+* Thu Mar 29 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 7.2.6-1
+- initial version
+
