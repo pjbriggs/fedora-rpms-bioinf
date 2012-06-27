@@ -1,0 +1,11 @@
+--- augustus.2.5.5/src/Makefile	2011-03-02 11:19:19.000000000 +0000
++++ augustus.2.5.5.new/src/Makefile	2012-06-27 13:07:16.433201736 +0100
+@@ -7,7 +7,7 @@
+ #        - In the current version, the order of object files in $(OBJS) IS IMPORTANT (see lldouble.hh)
+ #        
+ CC	= g++
+-CFLAGS := -Wall -Wno-sign-compare -ansi -pedantic -O2 ${CFLAGS} -static # -pg -DDEBUG  -g -ggdb -static
++CFLAGS := -Wall -Wno-sign-compare -ansi -pedantic -O2 ${CFLAGS} #-static # -pg -DDEBUG  -g -ggdb -static
+ INCLS	= -I../include -I.
+ LIBS	= # -lcwd
+ OBJS	= genbank.o properties.o pp_profile.o pp_hitseq.o pp_scoring.o statemodel.o namgene.o \
