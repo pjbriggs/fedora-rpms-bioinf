@@ -1,0 +1,49 @@
+# Patch Makefiles for meme suite to fix broken DESTDIR functionality
+--- a/Makefile.in	2012-02-07 04:03:39.473742534 +0000
++++ b/Makefile.in	2012-07-25 15:05:54.964324316 +0100
+@@ -775,11 +775,11 @@
+ install-data-hook: dbdir
+ 
+ dbdir:
+-	mkdir -p $(MEME_DB)
++	mkdir -p "$(DESTDIR)$(MEME_DB)"
+ 
+ install-data-local:
+-	mkdir -p $(MEME_LOGS)
+-	chmod a+w $(MEME_LOGS)
++	mkdir -p "$(DESTDIR)$(MEME_LOGS)"
++	chmod a+w "$(DESTDIR)$(MEME_LOGS)"
+ 
+ distclean-local: clean-local
+ clean-local: clean-ac
+--- a/doc/examples/Makefile.in	2012-02-07 04:03:33.249742303 +0000
++++ b/doc/examples/Makefile.in	2012-07-25 14:59:39.086100761 +0100
+@@ -678,17 +678,17 @@
+ 
+ 
+ install-data-hook:
+-	tar xzvf centrimo_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf dreme_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf fimo_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf glam2_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf glam2scan_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf mast_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf mcast_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf meme_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf memechip_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf spamo_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf tomtom_example_output_files.tgz -C $(other_exdir)
++	tar xzvf centrimo_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf dreme_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf fimo_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf glam2_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf glam2scan_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf mast_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf mcast_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf meme_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf memechip_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf spamo_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf tomtom_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
+ 
+ # If .svnignore file doesn't exist
+ # create an empty one

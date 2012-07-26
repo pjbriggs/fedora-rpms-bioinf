@@ -1,0 +1,23 @@
+# Patch to make meme install use perl5 rather perl as destination for perl modules
+--- meme_4.8.1/scripts/Makefile.in.orig	2012-07-26 13:14:50.173314543 +0100
++++ meme_4.8.1/scripts/Makefile.in	2012-07-26 13:14:53.357324614 +0100
+@@ -273,7 +273,7 @@
+ 	-e 's%@DOCDIR@%$(MEME_DOC_DIR)/%'
+ 
+ BUILT_PERL_MOD = MemeWebUtils.pm convert2html.pl
+-perlmoddir = $(libdir)/perl
++perlmoddir = $(libdir)/perl5
+ perlmod_SCRIPTS = $(BUILT_PERL_MOD) ExecUtils.pm MotifUtils.pm CatList.pm
+ MEME_TESTS = runcheck metatest
+ @PARALLEL_TRUE@PARALLEL_TESTS = runcheck_p
+--- meme_4.8.1/website/scripts/Makefile.in.orig	2012-07-26 13:24:45.302254178 +0100
++++ meme_4.8.1/website/scripts/Makefile.in	2012-07-26 13:24:48.765266636 +0100
+@@ -228,7 +228,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ AUTOMAKE_OPTIONS = no-dependencies
+-moduledir = $(libdir)/perl
++moduledir = $(libdir)/perl5
+ SEDSPEC = \
+ 	-e 's%@SITE_CONTACT@%$(CONTACT)%'  \
+ 	-e 's%@METAMEME_SITE_CONTACT@%$(METAMEME_CONTACT)%'  \
