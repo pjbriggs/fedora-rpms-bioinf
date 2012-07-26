@@ -1,3 +1,5 @@
+# Fix wrong dependencies when building perl-SOAP-WSDL
+# http://lists.fedoraproject.org/pipermail/devel/2011-October/157658.html
 --- SOAP-WSDL-2.00.10/lib/SOAP/WSDL/SOAP/HeaderFault.pm.orig	2012-07-26 12:01:11.468689113 +0100
 +++ SOAP-WSDL-2.00.10/lib/SOAP/WSDL/SOAP/HeaderFault.pm	2012-07-26 12:02:21.097947592 +0100
 @@ -1,7 +1,7 @@
