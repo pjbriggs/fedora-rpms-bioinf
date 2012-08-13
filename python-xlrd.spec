@@ -1,6 +1,6 @@
 %define modulename xlrd
-%define version 0.7.1
-%define unmangled_version 0.7.1
+%define version 0.8.0
+%define unmangled_version 0.8.0
 %define release 1
 
 Summary: Library for developers to extract data from Microsoft Excel (tm) spreadsheet files
@@ -38,6 +38,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Mon Aug 13 2012 Peter Briggs <pjb@Fedora16-MINIT-I9HRGO> - 0.8.0-1
+- updated for xlrd 0.8.0
 
 * Fri Jun 29 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.1.1-1
 - initial version modified from output of bdist_rpm --no-spec
