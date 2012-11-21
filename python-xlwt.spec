@@ -1,6 +1,6 @@
 %define modulename xlwt
-%define version 0.7.2
-%define unmangled_version 0.7.2
+%define version 0.7.4
+%define unmangled_version 0.7.4
 %define release 1
 
 Summary: Library to create spreadsheet files compatible with MS Excel 97/2000/XP/2003 XLS files, on any platform, with Python 2.3 to 2.6
@@ -43,6 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Mon Aug 13 2012 Peter Briggs <pjb@Fedora16-MINIT-I9HRGO> - 0.7.4-1
+- updated for xlwt 0.7.4
 
 * Fri Jun 29 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.1.1-1
 - initial version modified from output of bdist_rpm --no-spec
