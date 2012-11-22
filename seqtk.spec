@@ -9,7 +9,8 @@ URL:		https://github.com/lh3/seqtk
 Source0:	https://github.com/lh3/seqtk/archive/seqtk-master.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 	
-BuildRequires:	gcc glibc-devel
+BuildRequires:	gcc glibc-devel zlib-devel
+Requires:	glibc zlib
 
 %description
 Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ
