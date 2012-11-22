@@ -1,0 +1,9 @@
+--- BitSeq-0.4.3/Makefile	2012-11-07 00:27:28.000000000 +0000
++++ BitSeq-0.4.3.new/Makefile	2012-11-22 09:34:10.398993485 +0000
+@@ -1,5 +1,5 @@
+ CXX = g++
+-ARCH = -mtune=generic
++ARCH = -mtune=native
+ #	ARCH = -march=core2
+ #	ARCH = -march=native
+ 
