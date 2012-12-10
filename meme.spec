@@ -1,6 +1,6 @@
 Name:		meme
 Version:	4.8.1
-Release:	2%{?dist}
+Release:	4%{?dist}
 Summary:	MEME suite: motif-based sequence analysis tools
 
 Group:		Applications/Engineering
@@ -10,6 +10,7 @@ Source0:	%{name}_%{version}.tar.gz
 Patch0:		meme_%{version}.patch
 Patch1:		meme-Makefiles-DESTDIR.patch
 Patch2:		meme-Makefiles-perl5.patch
+Patch3:		meme-etc-files.patch
 
 BuildRequires:	libxml2
 BuildRequires:	libxml2-devel
@@ -59,9 +60,13 @@ The MEME Suite allows you to:
 %patch1 -p1
 # Patches to use %{_libdir}/perl5 rather than %{_libdir}/perl
 %patch2 -p1
+# Patches to use %{_prefix}/etc/meme rather than %{_prefix}/etc as default
+# location for configuration and data files
+%patch3 -p1
+
 
 %build
-./configure --prefix=%{_prefix} --with-url=http://meme.nbcr.net/meme/ --sysconfdir=%{_sysconfdir}/%{name} --libdir=%{_libdir}
+./configure --prefix=%{_prefix} --with-url=http://meme.nbcr.net/meme/ --sysconfdir=%{_prefix}/etc/%{name} --libdir=%{_libdir}
 make
 
 
@@ -87,18 +92,24 @@ rm -rf %{buildroot}%{_includedir}
 
 %files
 %defattr(-,root,root,-)
-%{_sysconfdir}/%{name}/*
+%{_prefix}/etc/%{name}/*
 %{_bindir}/*
 %{_docdir}/%{name}-%{version}/*
 %{_libdir}/perl5/*
 
 
 %changelog
+* Mon Dec 10 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 4.8.1-4
+- patch meme.csh.in and init.c to use correct default location for config and data files
+
+* Fri Dec  7 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 4.8.1-3
+- fix location of configuration files
+
 * Thu Jul 26 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 4.8.1-2
 - fix dependencies
 - removed database updating Perl scripts
 
-* Tue Jul 24 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 0.65-1
+* Tue Jul 24 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 4.8.1-1
 - rename "tree" to "meme-tree"
 - patch to script Makefile.in's to use "%{_libdir}/perl5"
 - patch to top-level Makefile.in to fix broken DESTDIR functionality

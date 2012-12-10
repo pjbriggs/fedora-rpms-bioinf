@@ -1,0 +1,17 @@
+--- a/Makefile.in	2012-02-07 04:03:39.473742534 +0000
++++ b/Makefile.in	2012-07-25 15:05:54.964324316 +0100
+@@ -775,11 +775,11 @@
+ install-data-hook: dbdir
+ 
+ dbdir:
+-	mkdir -p $(MEME_DB)
++	mkdir -p "$(DESTDIR)$(MEME_DB)"
+ 
+ install-data-local:
+-	mkdir -p $(MEME_LOGS)
+-	chmod a+w $(MEME_LOGS)
++	mkdir -p "$(DESTDIR)$(MEME_LOGS)"
++	chmod a+w "$(DESTDIR)$(MEME_LOGS)"
+ 
+ distclean-local: clean-local
+ clean-local: clean-ac

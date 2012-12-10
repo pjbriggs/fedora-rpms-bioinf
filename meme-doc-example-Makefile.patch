@@ -1,0 +1,31 @@
+--- a/doc/examples/Makefile.in	2012-02-07 04:03:33.249742303 +0000
++++ b/doc/examples/Makefile.in	2012-07-25 14:59:39.086100761 +0100
+@@ -678,17 +678,17 @@
+ 
+ 
+ install-data-hook:
+-	tar xzvf centrimo_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf dreme_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf fimo_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf glam2_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf glam2scan_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf mast_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf mcast_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf meme_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf memechip_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf spamo_example_output_files.tgz -C $(other_exdir)
+-	tar xzvf tomtom_example_output_files.tgz -C $(other_exdir)
++	tar xzvf centrimo_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf dreme_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf fimo_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf glam2_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf glam2scan_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf mast_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf mcast_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf meme_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf memechip_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf spamo_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
++	tar xzvf tomtom_example_output_files.tgz -C "$(DESTDIR)$(other_exdir)"
+ 
+ # If .svnignore file doesn't exist
+ # create an empty one

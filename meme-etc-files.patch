@@ -1,0 +1,26 @@
+diff -r -u meme_4.8.1/scripts/meme.csh.in meme_4.8.1.new/scripts/meme.csh.in
+--- meme_4.8.1/scripts/meme.csh.in	2012-01-27 06:05:09.964703191 +0000
++++ meme_4.8.1.new/scripts/meme.csh.in	2012-12-10 11:27:26.860224378 +0000
+@@ -59,7 +59,7 @@
+ 
+ # Describe MEME and its output format:
+ usage:
+-set usage = @MEMEDIR@/etc/meme.doc
++set usage = @MEMEDIR@/etc/meme/meme.doc
+ tty -s                        # see if stdin is a terminal
+ if ($status == 0) then
+   more $usage
+Only in meme_4.8.1.new/scripts: meme.csh.in~
+diff -r -u meme_4.8.1/src/init.c meme_4.8.1.new/src/init.c
+--- meme_4.8.1/src/init.c	2012-01-27 06:05:10.464703209 +0000
++++ meme_4.8.1.new/src/init.c	2012-12-10 11:27:44.516254617 +0000
+@@ -496,7 +496,7 @@
+         plib_name = DNA_PLIB;   /* default mixture prior for DNA */
+       }
+       /* prepend meme_directory to file name */
+-      Strcat(tmp1, meme_directory, "/etc/");
++      Strcat(tmp1, meme_directory, "/etc/meme/");
+       Strcat(tmp2, tmp1, plib_name);
+       plib_name = tmp2;
+     }
+Only in meme_4.8.1.new/src: init.c~
