@@ -1,5 +1,5 @@
 Name:		affymetrix-apt
-Version:	1.14.3.1
+Version:	1.15.0
 Release:	1%{?dist}
 Summary:	Tools for analyzing and working with Affymetrix GeneChip arrays
 
@@ -37,7 +37,7 @@ make
 rm -rf %{buildroot}
 # Doesn't have a make install of its own so fudge it here
 mkdir -p %{buildroot}%{_bindir}
-cp sdk/output/amd64-pc-linux/bin/apt-* %{buildroot}%{_bindir}
+cp sdk/output/x86_64-intel-linux/bin/apt-* %{buildroot}%{_bindir}
 rm %{buildroot}%{_bindir}/apt-rt-*
 
 
@@ -51,6 +51,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Jan 24 2013 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.15.0-1
+- updated for 1.15.0
+
 * Thu Jan 26 2012 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.14.3.1-1
 - updated to 1.14.3.1
 - add patch for compiling with gcc 4.6.x
