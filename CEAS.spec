@@ -13,7 +13,7 @@ Name:		python26-CEAS
 Name:		CEAS
 %endif
 Version:	1.0.2
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	CEAS: Cis-regulatory Element Annotation System
 
 Group:		Applications/Engineering
@@ -27,6 +27,7 @@ BuildRequires:	python26 python26-devel
 %else
 BuildRequires:	python python-devel
 %endif
+Requires:	MySQL-python
 BuildArch:	noarch
 
 %description
@@ -73,6 +74,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Mon Feb 11 2013 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.0.2-3
+- require MySQL-python
+
 * Fri Nov 18 2011 Peter Briggs <peter.briggs@manchester.ac.uk> - 1.0.2-2
 - updated to build 'python26-CEAS' package using python 2.6 on EL5 systems
 
