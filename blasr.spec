@@ -1,7 +1,7 @@
 Name:		blasr
 # BLASR doesn't have an official version number so use the date stamp
 # of the last commit
-Version:	130412
+Version:	131001
 Release:	1%{?dist}
 Summary:	BLASR: long read aligner for PacBio data
 
@@ -78,6 +78,9 @@ mv LICENSE.txt README.txt %{buildroot}%{_docdir}/%{name}-%{version}
 
 
 %changelog
+* Tue Oct  1 2013 Peter Briggs <peter.briggs@manchester.ac.uk> - 131001-1
+- new upstream version based on commit 78875212f1
+
 * Thu Apr 25 2013 Peter Briggs <peter.briggs@manchester.ac.uk> - 130412-1
 - initial version based on commit 0fe0a198c5
 
