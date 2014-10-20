@@ -25,7 +25,7 @@ digests as a part of the comparisons.
 
 %build
 # Append gettext version to configure.ac so that autopoint can work
-# Nb this doesn't seem to work under 'mock'
+# Nb this doesn't always seem to work under 'mock'?
 echo "AM_GNU_GETTEXT_VERSION("$(autopoint --version | grep autopoint | cut -d' ' -f4)")" 1>> configure.ac 2>&1
 # Use autopoint rather than 'gettextize --no-changelog' in RPM context
 # autopoint is the non-interactive version
