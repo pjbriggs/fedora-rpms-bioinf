@@ -1,17 +1,16 @@
 Name:		duff
 Version:	0.5.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Command-line utility for quickly finding duplicates in a given set of files
 
 Group:		File Tools
 License:	zlib/libpng
 URL:		http://duff.dreda.org/
 Source0:	https://github.com/elmindreda/duff/archive/duff-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	  autoconf
 BuildRequires:	  automake
-BuildRequires:	  gettext-devel,gettext
+BuildRequires:	  gettext-devel
 
 %description
 
@@ -38,25 +37,23 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}/%{_bindir}
 make install DESTDIR=%{buildroot}
+# Use %find_lang macro to handle locale files
+# See http://fedoraproject.org/wiki/PackagingDrafts/find_lang
+%find_lang %{name}
 
-
-%clean
-rm -rf %{buildroot}
-
-
-%files
+%files -f %{name}.lang
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING README README.SHA
 %{_bindir}/*
 %{_mandir}/man?/*
 %{_datadir}/%{name}/*
 %{_datadir}/doc/%{name}/*
-%{_datadir}/locale/*/*/*
 
 %changelog
+* Tue Oct 21 2014 Peter Briggs <peter.briggs@manchester.ac.uk> - 0.5.2-2
+- Updated spec file with suggestions from Pierre-Yves Chibon (pypingou@github)
 
 * Fri Oct 17 2014 Peter Briggs <peter.briggs@manchester.ac.uk> - 0.5.2-1
 - initial version
